@@ -29,6 +29,10 @@ int main(){
 		}
 	}
 	imshow("img3",dst);
+	//实现改变图像对比度与亮度
+	Mat zero(img.size(),CV_8UC3,Scalar(0,0,0));//构造全黑图像
+	addWeighted(img,0.6,zero,0.4,25,dst);
+	imshow("img4",dst);
 	waitKey(0);
 	imwrite("new_img.jpg",dst);
 	return 0;
